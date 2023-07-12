@@ -1,6 +1,7 @@
 import { RiDeleteBin2Line, RiTodoFill } from "react-icons/ri";
-import { FaCheck } from "react-icons/fa";
+import { FaCheck, FaCheckDouble } from "react-icons/fa";
 import styles from "./Product.module.css";
+import Calculate from "../UI/Calculate";
 
 function Product({ product, deleteProduct, toggleProduct }) {
   return (
@@ -19,6 +20,8 @@ function Product({ product, deleteProduct, toggleProduct }) {
         className={styles.checkIcon}
         onClick={() => toggleProduct(product.id)}
       />
+      <FaCheckDouble className={styles.checkIcon} onClick={() => Calculate()} />
+      {<h3>{`Belok `}</h3>}
     </div>
   );
 }

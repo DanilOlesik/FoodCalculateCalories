@@ -3,7 +3,8 @@ import { v4 as uuidv4 } from "uuid";
 import ProductForm from "./components/ProductForm";
 import ProductList from "./components/ProductList";
 import ProductsActions from "./components/ProductsActions";
-import BazaProducts from "./components/BazaProduct";
+import Calculate from "./UI/Calculate";
+// import BazaProducts from "./components/BazaProduct";
 
 import "./App.css";
 
@@ -12,7 +13,6 @@ function App() {
 
   const addProductHandler = (text) => {
     const newProduct = {
-      textBFC: BazaProducts[BazaProducts.state],
       text,
       isComplited: false,
       id: uuidv4(),
@@ -32,6 +32,7 @@ function App() {
       )
     );
   };
+
   const resetProductsHandler = () => {
     setProducts([]);
   };
@@ -63,9 +64,12 @@ function App() {
           toggleProduct={toggleProductHandler}
         />
         {completedProductsCount > 0 && (
-          <h2>{`You counted ${completedProductsCount} ${
-            completedProductsCount > 1 ? "meals" : "meal"
-          }`}</h2>
+          <h2>
+            {`You counted ${completedProductsCount} ${
+              completedProductsCount > 1 ? "meals" : "meal. "
+            }`}
+            <Calculate />
+          </h2>
         )}
       </header>
     </div>
